@@ -1,0 +1,456 @@
+/* ---------- 1. Variables y ajustes generales ---------- */
+:root {
+    --verde-oscuro: #183f2b;
+    --verde: #2f7047;
+    --verde-claro: #e8f2e9;
+    --dorado: #d6a84f;
+    --crema: #f7f5ee;
+    --blanco: #ffffff;
+    --texto: #26332b;
+    --texto-suave: #637066;
+    --sombra: 0 10px 28px rgba(24, 63, 43, 0.12);
+    --radio: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--texto);
+    background: var(--crema);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+/* ---------- 2. Barra de navegación ---------- */
+.navbar {
+    background: var(--verde-oscuro) !important;
+    padding: 14px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.navbar .container {
+    gap: 18px;
+}
+
+.navbar .nombre-pagina,
+.navbar .navbar-brand {
+    color: var(--blanco) !important;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 750;
+    letter-spacing: 0.2px;
+    white-space: normal;
+}
+
+.navbar .navbar-nav {
+    gap: 5px;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 9px 13px !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--blanco) !important;
+    background: var(--verde);
+}
+
+/* ---------- 3. Títulos y textos compartidos ---------- */
+.titulo-seccion {
+    margin: 0 0 24px;
+    color: var(--verde-oscuro);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.titulo-seccion::after {
+    content: "";
+    display: block;
+    width: 76px;
+    height: 4px;
+    margin: 15px auto 0;
+    border-radius: 99px;
+    background: var(--dorado);
+}
+
+.texto-introduccion {
+    max-width: 850px;
+    margin: 0 auto;
+    color: var(--texto-suave);
+    font-size: 1.08rem;
+}
+
+/* ---------- 4. Página Inicio: carrusel ---------- */
+.seccion-inicio {
+    padding: 0;
+    background: var(--verde-oscuro);
+}
+
+#carrusel-ganaderia,
+.carousel,
+.carousel-inner,
+.carousel-item {
+    position: relative;
+}
+
+.imagen-carrusel {
+    display: block;
+    width: 100%;
+    height: clamp(380px, 66vh, 680px);
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.62);
+}
+
+.texto-carrusel {
+    right: 10%;
+    bottom: 15%;
+    left: 10%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.texto-carrusel h1,
+.texto-carrusel h2 {
+    margin-bottom: 16px;
+    color: var(--blanco);
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    font-weight: 800;
+    line-height: 1.12;
+}
+
+.texto-carrusel p {
+    margin: 0 auto 22px;
+    max-width: 700px;
+    color: #fff;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.boton-principal,
+.boton-enviar {
+    border: 0;
+    border-radius: 9px;
+    padding: 12px 24px;
+    background: var(--dorado);
+    color: #1f2d22;
+    font-weight: 750;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.boton-principal:hover,
+.boton-enviar:hover {
+    background: #e7bd68;
+    color: #1f2d22;
+    transform: translateY(-2px);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+}
+
+.seccion-introduccion {
+    padding: 70px 20px;
+    background: var(--blanco);
+}
+
+.seccion-introduccion .container {
+    max-width: 1000px;
+}
+
+/* ---------- 5. Página Historia: acordeón ---------- */
+#historiaGanaderia {
+    width: min(1000px, calc(100% - 36px));
+    margin: 52px auto 70px;
+    overflow: hidden;
+    border: 1px solid #dce5dc;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    background: var(--blanco);
+}
+
+#historiaGanaderia .accordion-item {
+    border: 0;
+    border-bottom: 1px solid #e1e8e1;
+}
+
+#historiaGanaderia .accordion-item:last-child {
+    border-bottom: 0;
+}
+
+#historiaGanaderia .accordion-button {
+    padding: 22px 26px;
+    color: var(--verde-oscuro);
+    background: var(--blanco);
+    font-size: 1.08rem;
+    font-weight: 750;
+    box-shadow: none;
+}
+
+#historiaGanaderia .accordion-button:not(.collapsed) {
+    color: var(--blanco);
+    background: var(--verde);
+}
+
+#historiaGanaderia .accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+}
+
+#historiaGanaderia .accordion-button:focus {
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 3px rgba(214, 168, 79, 0.25);
+}
+
+#historiaGanaderia .accordion-body {
+    padding: 24px 28px;
+    color: var(--texto-suave);
+    background: #fbfcf9;
+    font-size: 1.02rem;
+}
+
+/* IMAGEN LATERAL DE HISTORIA */
+.imagen-historia {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ---------- 6. Páginas Razas e Importancia: tarjetas ---------- */
+.seccion-importancia {
+    width: min(1200px, calc(100% - 36px));
+    margin: 0 auto;
+    padding: 56px 0 70px;
+}
+
+.seccion-importancia > .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+    align-items: stretch;
+}
+
+.tarjeta-raza {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #e0e8df;
+    border-radius: var(--radio);
+    background: var(--blanco);
+    box-shadow: 0 5px 18px rgba(24, 63, 43, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-raza:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra);
+}
+
+.imagen-raza {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    background: var(--verde-claro);
+}
+
+.tarjeta-raza .card-body {
+    padding: 24px;
+}
+
+.tarjeta-raza .card-title {
+    margin-bottom: 13px;
+    color: var(--verde-oscuro);
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.tarjeta-raza .card-text {
+    margin-bottom: 0;
+    color: var(--texto-suave);
+    line-height: 1.75;
+}
+
+/* ---------- 7. Página Contacto: formulario ---------- */
+.seccion-contacto {
+    min-height: calc(100vh - 150px);
+    padding: 60px 18px 80px;
+    background:
+        radial-gradient(circle at top left, rgba(214, 168, 79, 0.12), transparent 34%),
+        var(--crema);
+}
+
+.seccion-contacto > .container {
+    max-width: 760px;
+    padding: 36px;
+    border: 1px solid #e1e8df;
+    border-radius: var(--radio);
+    background: var(--blanco);
+    box-shadow: var(--sombra);
+}
+
+.formulario-contacto {
+    margin-top: 28px;
+}
+
+.formulario-contacto .form-label {
+    margin-bottom: 8px;
+    color: var(--verde-oscuro);
+    font-weight: 700;
+}
+
+.formulario-contacto .form-control {
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #ccd8cc;
+    border-radius: 9px;
+    background: #fcfdfb;
+    color: var(--texto);
+}
+
+.formulario-contacto textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.formulario-contacto .form-control:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgba(47, 112, 71, 0.15);
+    background: var(--blanco);
+}
+
+.formulario-contacto .boton-enviar {
+    width: 100%;
+    margin-top: 8px;
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+.formulario-contacto .boton-enviar:hover {
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+
+/* ---------- 8. Pie de página ---------- */
+.pie-pagina {
+    padding: 28px 16px;
+    background: var(--verde-oscuro);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+.pie-pagina p {
+    margin: 4px 0;
+}
+
+.pie-pagina p:first-child {
+    font-weight: 750;
+}
+
+/* ---------- 9. Accesibilidad y adaptación móvil ---------- */
+a {
+    transition: color 0.2s ease;
+}
+
+:focus-visible {
+    outline: 3px solid var(--dorado);
+    outline-offset: 3px;
+}
+
+@media (max-width: 767.98px) {
+    section {
+        padding-top: 38px;
+        padding-bottom: 38px;
+    }
+
+    .navbar .container {
+        align-items: flex-start;
+    }
+
+    .navbar .navbar-nav {
+        padding-top: 8px;
+    }
+
+    .navbar .nav-link {
+        padding: 8px 10px !important;
+    }
+
+    .imagen-carrusel {
+        height: 440px;
+    }
+
+    .texto-carrusel {
+        right: 7%;
+        bottom: 9%;
+        left: 7%;
+        padding: 12px;
+    }
+
+    .texto-carrusel h1,
+    .texto-carrusel h2 {
+        font-size: clamp(1.65rem, 7vw, 2.5rem);
+    }
+
+    .texto-carrusel p {
+        font-size: 0.98rem;
+    }
+
+    .seccion-importancia {
+        width: min(100% - 24px, 600px);
+        padding-top: 36px;
+    }
+
+    .imagen-raza {
+        height: 220px;
+    }
+
+    .seccion-contacto > .container {
+        padding: 24px 18px;
+    }
+
+    #historiaGanaderia {
+        width: calc(100% - 24px);
+        margin-top: 32px;
+    }
+
+    #historiaGanaderia .accordion-button {
+        padding: 18px;
+    }
+
+    #historiaGanaderia .accordion-body {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
